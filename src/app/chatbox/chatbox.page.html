@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="ion-display-flex ion-align-items-end header-wrapper-div">
+      <div class="ion-display-flex ion-align-items-center user-detail-info-div-chat">
+        <div (click)="goBack()" class="ion-align-items-center ion-display-flex ion-activatable ripple-parent user-detail-info-div-chat-top">
+          <img class="close-chat-btn" src="assets/imgs/chat-img/back.png">
+          <div class="ion-position-relative ion-display-flex">
+            <img class="user-profile-picture" [lazyLoad]="personChat.profilePicture">
+            <img class="group-profile-picture" *ngIf="isGroup" [lazyLoad]="personChat.groupImage">
+          </div>
+          
+          <!-- <ion-ripple-effect></ion-ripple-effect> -->
+        </div>
+        <div class="user-info-div" (click)="openGroupDetails()">
+          <h3 class="user-name">{{ isGroup ? personChat.groupName : personChat.name }}</h3>
+          <h3 *ngIf="!isGroup" class="last-seen">last seen today at 6:36 AM</h3>
+          <h3 *ngIf="isGroup" class="group-initial-names">Christohper, Matt Losam</h3>
+        </div>
+      </div>
+
+      <ul class="phone-call-video-list">
+        <li (click)="sendCall('Calling')">
+          <img class="phone-call-img" src="assets/imgs/chat-img/phone-call.png">
+        </li>
+        <li (click)="sendCall('Video Calling')">
+          <img class="video-img" src="assets/imgs/chat-img/video-camera.png">
+        </li>
+      </ul>
+    </div>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content id="content">
+  <!--Chat Box-->
+  
+  <div>
+    <ul class="chat-list-ul" style="list-style: none;padding: 0;"> 
+      <ng-container *ngFor="let chatbox of personChat.chatting">
+        <li class="other-user-list" *ngIf="chatbox.type == 'other'">
+          <h3 class="contact-number"><span>{{ personChat.contactNumber }}</span> ~ {{ personChat.name }}</h3>
+          <div class="other-user-div">
+
+            <ng-container *ngIf="chatbox.imgs?.length > 0">
+              <ion-row class="chat-imgs-row">
+                <ng-container *ngFor="let img of chatbox.imgs; let i = index">
+                  <ion-col class="ion-padding-none ion-position-relative ion-activatable ripple-parent ion-cursor-pointer" *ngIf="i < 4" size="6" (click)="openImages(chatbox.imgs)">
+                    <figure [class.more-imgs]="i == 3">
+                      <img class="chat-imgs" [lazyLoad]="img.img">
+                    </figure>
+                    <h3 class="more-imgs-count" *ngIf="i == 3">+{{ chatbox.imgs?.length - i }}</h3>
+                    <ion-ripple-effect></ion-ripple-effect>
+                  </ion-col>
+                </ng-container>
+              </ion-row>
+            </ng-container>
+            
+            <ng-container *ngIf="chatbox.stickerImg"><!--Sticker-->
+              <img class="sticker-img" [src]="chatbox.stickerImg">
+            </ng-container>
+            
+            <ng-container *ngIf="chatbox.audio && chatbox.audio?.length > 0"><!--Audio-->
+              <audio controls id="player" [src]="chatbox.audio[0]" controlsList="nodownload noplaybackrate"></audio><!--Audio-->
+            </ng-container>
+          
+            <ng-container *ngIf="chatbox.video && chatbox.video?.length > 0"><!--Audio-->
+              <video controls class="video-tag" [src]="chatbox.video[0]" poster="assets/imgs/black-img.jpeg"></video>
+            </ng-container>
+
+            <ng-container *ngIf="chatbox.youtubeVideo && chatbox.youtubeVideo?.length > 0"><!--Audio-->
+              <iframe class="video-tag" [src]="chatbox.youtubeVideo[0] | safe"></iframe>
+            </ng-container>
+
+            <h3 class="other-user-message-text">{{ chatbox.msg }}</h3>
+            <div class="ion-display-flex other-user-seen-msg-div">
+              <h4 class="other-user-seen-text">Seen 10:25PM</h4>
+              <svg class="other-user-seen-tick" [class.highlight-blue-tick]="chatbox.readStaus == 'read'" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 594.149 594.149" style=""><g><g><path fill="currentColor" d="M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1l-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z"></path></g></g></svg>
+            </div>
+          </div>
+        </li>
+        <!--Your Message-->
+        <li class="your-list" *ngIf="chatbox.type == 'self'">
+          <div class="your-message-div">
+
+            
+            <ng-container *ngIf="chatbox.imgs?.length == 1">
+              <ng-container *ngFor="let img of chatbox.imgs; let i = index">
+                <ion-row>
+                  <ion-col class="ion-cursor-pointer" (click)="openImages(chatbox.imgs)">
+                    <img class="single-chat-imgs" [lazyLoad]="img.img">
+                  </ion-col>
+                </ion-row>
+              </ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="chatbox.imgs?.length > 1">
+              <ion-row class="chat-imgs-row">
+                <ng-container *ngFor="let img of chatbox.imgs; let i = index">
+                  <ion-col class="ion-padding-none ion-position-relative ion-activatable ripple-parent ion-cursor-pointer" *ngIf="i < 4" size="6"(click)="openImages(chatbox.imgs)">
+                    <figure [class.more-imgs]="i == 3">
+                      <img class="chat-imgs" [lazyLoad]="img.img">
+                    </figure>
+                    <h3 class="more-imgs-count" *ngIf="i == 3">+{{ chatbox.imgs?.length - i }}</h3>
+                    <ion-ripple-effect></ion-ripple-effect>
+                  </ion-col>
+                </ng-container>
+              </ion-row>
+            </ng-container>
+
+            <ng-container *ngIf="chatbox.audio && chatbox.audio?.length > 0"><!--Audio-->
+              <audio controls id="player" [src]="chatbox.audio[0]" controlsList="nodownload noplaybackrate"></audio><!--Audio-->
+            </ng-container>
+
+            <ng-container *ngIf="chatbox.video && chatbox.video?.length > 0"><!--Audio-->
+              <video controls class="video-tag" [src]="chatbox.video[0]" poster="assets/imgs/black-img.jpeg"></video>
+            </ng-container>
+
+            <ng-container *ngIf="chatbox.youtubeVideo && chatbox.youtubeVideo?.length > 0"><!--Audio-->
+              <iframe class="video-tag" [src]="chatbox.youtubeVideo[0] | safe"></iframe>
+            </ng-container>
+
+            <ng-container *ngIf="chatbox.stickerImg"><!--Sticker-->
+              <img class="sticker-img" [src]="chatbox.stickerImg">
+            </ng-container>
+
+            <h3 class="your-message-text">{{ chatbox.msg }}</h3>
+            <div *ngIf="chatbox.type == 'self'" class="ion-display-flex your-seen-msg-div">
+              <h4 class="your-message-seen-text">Seen 7:01PM</h4>
+              <svg class="your-message-seen-tick" [class.highlight-blue-tick]="chatbox.readStaus == 'read'" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 594.149 594.149" style=""><g><g><path fill="currentColor" d="M448.8,161.925l-35.7-35.7l-160.65,160.65l35.7,35.7L448.8,161.925z M555.899,126.225l-267.75,270.3l-107.1-107.1l-35.7,35.7l142.8,142.8l306-306L555.899,126.225z M0,325.125l142.8,142.8l35.7-35.7l-142.8-142.8L0,325.125z"></path></g></g></svg>
+            </div>
+          </div>
+        </li> 
+      </ng-container>
+    </ul>    
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="message-box-wrapper-div">
+      <div class="ion-display-flex message-box-div">
+        <ion-input #inputMessage [(ngModel)]="message" placeholder="Message" class="message-box"></ion-input>
+        <ion-button class="pick-img-btn">
+          <img src="assets/imgs/chat-img/camera.svg">
+        </ion-button>
+      </div>
+      <ion-button (click)="sendMessage()" class="send-message-btn">
+        <img src="assets/imgs/chat-img/paper-plane.svg">
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

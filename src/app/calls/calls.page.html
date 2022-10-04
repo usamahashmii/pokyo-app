@@ -1,0 +1,35 @@
+<ion-content (ionScroll)="logScrolling($event)" #content id="ion-content" scrollEvents="true">
+    <div class="calls-wapper-div">
+        <ng-container *ngFor="let calls of  searchValue != '' ? chatArrayFiltered : callArray">
+            <div class="calls-wrap-min-div ion-display-flex ion-justify-content-between ion-align-items-center">
+                <div class="ion-display-flex ion-align-items-center">
+                    <img class="calls-profile-img" [lazyLoad]="calls.img">
+                    <div class="calls-prfile-details-div">
+                        <h3 class="calls-name">{{ calls.name }}</h3>
+                        <div class="ion-display-flex calls-status-div ion-align-items-center">
+                            <img [src]="callsIconFun(calls)">
+                            <h4>{{ calls.callStatusText }}</h4>
+                            <div *ngIf="calls.callStatusCount != '0'" class="calls-status-count-div">
+                                <h5>{{ calls.callStatusCount }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="ion-display-flex ion-align-items-center">
+                    <div class="calls-prfile-details-div">
+                        <h3 class="calls-name">asdas</h3>
+                        <div class="ion-display-flex calls-status-div ion-align-items-center">
+                            <h4>qwq</h4>
+                            <div  class="calls-status-count-div">
+                                <h5>asdsa</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <h4 class="calls-time">{{ calls.time }}</h4>
+            </div>
+        </ng-container>
+    </div>
+    <!-- <p *ngFor="let val of [].constructor(500)">Hello</p> -->
+</ion-content>
+

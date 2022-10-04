@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" class="back-btn-effect" slot="start">
+      <img class="back-btn" src="assets/imgs/chat-img/back.png">
+    </ion-button>
+    <ion-title class="group-txt">Group details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-row class="group-basic-info-row">
+      <ion-col>
+        <img [lazyLoad]="personChat.groupPicture">
+        <h4>{{ personChat.groupName }}</h4>
+      </ion-col>
+    </ion-row>
+  
+    <ion-item-divider sticky>
+      <ion-segment value="persons" mode="ios" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="persons">
+          <ion-label>Group Participants</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="media">
+          <ion-label>Media Shared</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item-divider>
+  
+    <ion-list *ngIf="segmentSelected == 'persons'" lines="none">
+      <h3 class="group-participant-txt">Group Participants</h3>
+      <ion-item *ngFor="let group of shareMedia; let i = index" button>
+        <ion-avatar>
+          <img [src]="group.img">
+        </ion-avatar>
+        <div>
+          <h3>
+            {{ group.name }}
+            <ion-button *ngIf="i == 0" class="admin-btn">Admin</ion-button>
+          </h3>
+          <h4>{{ group.status }}</h4>
+        </div>
+        
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf="segmentSelected == 'media'">
+      <h3 class="media-shared-txt">Media Shared</h3>
+      <ion-row class="media-shared-row">
+        <ion-col class="ion-text-cente ion-cursor-pointerr" size="4" *ngFor="let image of shareMedia">
+          <img [lazyLoad]="image.img" (click)="openImages()">
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-list>
+  
+</ion-content>

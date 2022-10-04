@@ -1,0 +1,31 @@
+<ion-content>
+  <img class="img-selected" [src]="convertImageFile(imageSelected)">
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="ion-display-flex images-slides">
+      <ng-container *ngFor="let val of images">
+        <img (click)="selectImage(val)" [class.highlight-img]="val.img == imageSelected" [lazyLoad]="convertImageFile(val.img)">
+      </ng-container>
+    </div>
+    <!--Message input Box-->
+    <div class="message-box-wrapper-div">
+      <div class="ion-display-flex message-box-div">
+        <ion-input #inputMessage [(ngModel)]="message" placeholder="Message" class="message-box"></ion-input>
+        <!-- <ion-button class="pick-img-btn" (click)="sendImage()">
+          <img src="assets/imgs/chat-img/camera.svg">
+        </ion-button> -->
+      </div>
+      <ion-button (click)="sendMessage()" class="send-message-btn">
+        <img src="assets/imgs/chat-img/paper-plane.svg">
+      </ion-button>
+    </div>
+    <!-- <super-tabs [activeTabIndex]=selectedTabIndex>
+      <super-tabs-toolbar scrollable slot="top" scrollablePadding="false">
+        <super-tab-button *ngFor="let val of editImages">
+          <img [lazyLoad]="val.img">
+        </super-tab-button>
+      </super-tabs-toolbar>
+    </super-tabs>  -->
+  </ion-toolbar>
+</ion-footer>

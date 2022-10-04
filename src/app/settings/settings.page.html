@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" class="back-btn-effect" slot="start">
+      <img class="back-btn" src="assets/imgs/chat-img/back.png">
+    </ion-button>
+    <ion-title class="profile-txt">
+      Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="profile-row ion-display-flex ion-align-items-center">
+    <div>
+      <img src="assets/imgs/profession2/user4.jpg">
+    </div>
+    <div class="profile-row-details">
+      <h3>Andrew Nelson</h3>
+      <h4>Andy1301</h4>
+    </div>
+  </ion-row>
+
+  <ion-item button (click)="openSettings('general-settings')">
+    <ion-label>General Settings</ion-label>
+  </ion-item>
+  <ion-item button (click)="openSettings('notification-settings')">
+    <ion-label>Notifications</ion-label>
+  </ion-item>
+  <ion-item button (click)="openSettings('messaging-settings')">
+    <ion-label>Messaging</ion-label>
+  </ion-item>
+  <ion-item button (click)="openSettings('privacy')">
+    <ion-label>Privacy & Data</ion-label>
+  </ion-item>
+  <ion-item button (click)="openSettings('security')">
+    <ion-label>Security</ion-label>
+  </ion-item>
+  <ion-item button (click)="openSettings('apps')">
+    <ion-label>Apps</ion-label>
+  </ion-item>
+</ion-content>

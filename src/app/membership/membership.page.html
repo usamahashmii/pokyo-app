@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" class="back-btn-effect" slot="start">
+      <img class="back-btn" src="assets/imgs/chat-img/back.png">
+    </ion-button>
+    <ion-title class="membership-txt">
+      Buy Membership
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 class="buy-premiumship">Buy premiumship and unlock more exciting things.</h3>
+  <!-- <div class="card-info-div">
+    <h3>Card Number</h3>
+    <div class="ion-position-relative">
+      <ion-input type="number" placeholder="**** **** **** 8101"></ion-input>
+      <div class="card-type-txt">
+        <h3>VISA</h3>
+      </div>
+    </div>
+    
+    <h3>Card Holder</h3>
+    <div>
+      <ion-input type="text" placeholder="Steven Hedge"></ion-input>
+    </div>
+
+    <h3>Expiration Date</h3>
+    <ion-row>
+      <ion-col size="6">
+          <ion-datetime class="date-of-birth-box" displayFormat="MM" placeholder="Pick month"></ion-datetime>
+      </ion-col>
+      <ion-col size="6">
+        <ion-datetime class="date-of-birth-box" displayFormat="YY" placeholder="Pick year" min="2022" max="2030"></ion-datetime>
+    </ion-col>
+    </ion-row>
+    
+    
+  </div> -->
+  <h3 class="your-connect-credit">Your Pokyo Credits</h3>
+  <h4 class="send-message-calls">Now send message or do calls anywhere in your price range</h4>
+  <ion-button (click)="pickCredits(300)" class="buy-credits-div" [class.fill-credit-div]="creditsCount == 300">Add 300 Credits</ion-button>
+  <ion-button (click)="pickCredits(500)" class="buy-credits-div" [class.fill-credit-div]="creditsCount == 500">Add 500 Credits</ion-button>
+  <ion-button (click)="pickCredits(1000)" class="buy-credits-div" [class.fill-credit-div]="creditsCount == 1000">Add 1000 Credits</ion-button>
+
+  <ion-button (click)="buyCredits()" class="buy-credits-btn">Buy {{ creditsCount }} Credits</ion-button>
+</ion-content>

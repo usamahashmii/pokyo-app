@@ -1,0 +1,60 @@
+ion-content {
+    // overwrite inline styles
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+ion-searchbar{
+    --background: var(--ion-color-background);
+    --box-shadow: none;
+    border-radius: 30px;
+    --border-radius: 30px;
+    font-family: 'roboto-medium';
+    color: var(--background-top-header-text);
+}
+svg{
+    width: 20px;
+    height: 20px;
+    fill: #fe676c;
+}
+ion-searchbar {
+    ::ng-deep {
+    .searchbar-clear-icon {
+        display: none !important;
+    }
+}
+  }
+ion-list{
+    --background: var(--ion-color-background);
+    padding: 0;
+    ion-item{
+        --background: var(--ion-color-background);
+        background: var(--ion-color-background);
+        --padding-start: 15px;
+        --inner-padding-end: 0px;
+        height: 46px;
+        align-items: center;
+        display: flex;
+        border-bottom: 1px solid var(--ion-color-item-border-bottom);
+        h3{
+            font-size: 14px;
+            font-family: 'roboto-medium';
+            margin: 0;
+            color: var(--background-top-header-text);
+        }
+        ion-avatar{
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            h4{
+                font-size: 15px;
+                font-family: 'roboto-regular';
+                margin: 0;
+                color: #fe676c;
+            }
+        }        
+    }
+}

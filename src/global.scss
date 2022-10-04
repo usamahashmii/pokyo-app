@@ -1,0 +1,282 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// @import 'swiper/scss';
+// @import 'swiper/scss/navigation';
+// @import 'swiper/scss/pagination';
+@import '~swiper/css/bundle';
+//Ion Headers & Ion Content
+ion-content{
+    --background: var(--ion-color-background);
+    background: var(--ion-color-background);
+}
+ion-header{
+    box-shadow: -1px 3px 5px 0px var(--ion-header-home-box-shadow);
+    ion-toolbar{
+        --background: var(--ion-color-background);
+        padding-bottom: 10px;
+    }
+}
+.ion-cursor-pointer{
+  cursor: pointer;
+}
+.back-btn-effect:hover{
+  background: var(--ion-home-unread-message-div);
+}
+.header-md::after, 
+.header-ios::after{
+    // background-image: none;
+    background: var(--ion-color-background);
+}
+.header-ios ion-toolbar:last-of-type{
+  --border-width: 0;
+}
+.ion-display-flex{
+    display: flex;
+}
+.ion-position-relative{
+    position: relative;
+}
+.ion-position-absolute{
+    position: absolute;
+}
+.ion-padding-none{
+    // padding: 0;
+    max-width: 200px !important; 
+    max-height: 140px !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline{
+    height: 0px !important;
+}
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple){
+    background: #f1f1f1 !important;
+    font-weight: 600 !important;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #24364d !important;
+}
+.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
+    font-size: inherit;
+    line-height: 3em;
+    height: 3em;
+    font-weight: 500 !important;
+    color: #848484 !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-infix{
+    margin-top: -10px;
+    width: 85px;
+    font-size: 13px;
+}
+.mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex{
+    border: 1px solid var(--ion-angular-select-bar-background-color);
+    border-radius: 5px;
+    background: var(--ion-angular-select-bar-background-color);
+    padding: 0px 10px;
+}
+.mat-select-value-text{
+    font-family: 'roboto-medium' !important;
+    color: var(--ion-angular-select-bar-text-color);
+}
+
+//Toaster CSS
+.ion-toast{
+    width: 80%;
+    position: absolute;
+    left: 54%;
+    transform: translateX(-50%);
+}
+.reply-toast{
+    width: 84%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--ion-toast-background-color);
+    color: var(--ion-menu-bar-items-background-color);
+    font-family: "roboto-medium" !important;
+    height: 0px;
+    padding: 22px 20px;
+    border-radius: 30px;
+    margin-bottom: 5em;
+    text-align: center;
+    --background: none;
+    --box-shadow: none;
+    margin-top: 10px;
+    --height: 29px;
+}
+
+//CSS for Chats, Groups Page
+ion-content{
+    --background: var(--ion-color-background);
+  }
+.message-txt{
+    font-size: 14px;
+    margin: 13px 13px;
+    font-family: 'roboto-medium' !important;
+    color: var(--background-top-header-text);
+  } 
+  .usr-profile-picture{
+    border-radius: 50%;
+    border: 1px solid #9391a5;
+    max-width: 40px;
+    object-fit: cover;
+    padding: 2px;
+    height: 55px;
+    min-width: 55px;
+  }
+  .usr-name-msg{
+    margin-left: 10px;
+    width: 100%;
+  }
+  .usr-name{
+    margin: 0;
+    font-size: 15px;
+    font-family: 'roboto-medium' !important;
+    color: var(--background-top-header-text);
+    margin-bottom: 4px;
+  }
+  .usr-last-msg{
+    color: #888db2;
+    display: inline-block;
+    font-size: 13px;
+    font-style: normal;
+    max-width: 52%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    margin: 0;
+  }
+  .chat-count-time-div{
+    position: absolute;
+    right: 20px;
+  }
+  .chat-unread-count-div{
+    background: #fe676c;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: relative;
+    h3{
+      color: #fff;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      top: 50%;
+      margin: 0;
+      font-size: 9px;
+    }
+  }
+  .last-msg-time{
+    margin: 0;
+    color: #8388ad;
+    font-size: 12px;    
+    font-family: 'roboto-medium' !important;
+    margin-left: 10px;
+  }
+  .highlight-unread-div{
+    background: var(--ion-home-unread-message-div);
+    padding: 8px;
+    border-radius: 5px;
+  }
+  ion-item ion-radio.sc-ion-select-popover.ios.in-item.interactive.radio-checked.hydrated{
+    display: none !important;
+  }
+  ion-item.select-interface-option.md.sc-ion-select-popover.item.ios.in-list.ion-activatable.ion-focusable.hydrated.item-label{
+    height: 40px !important;
+  }
+  .sc-ion-select-popover-h ion-list-header.sc-ion-select-popover, .sc-ion-select-popover-h ion-label.sc-ion-select-popover{
+    font-size: 14px !important;
+    font-family: 'roboto-regular' !important;
+  }
+  .select-interface-option{
+    --background: var(--ion-color-background);
+    --background-focused: var(--ion-color-background);
+  }
+  ion-select.popover-content.sc-ion-popover-md, .popover-content.sc-ion-popover-ios{
+    box-shadow: 1px 1px 5px 0px #4b4b4b;
+    border-radius: 6px;
+  }
+  .item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h{
+    font-size: 14px;
+    font-family: 'roboto-regular';
+  }
+  .profile-pic-action-sheet{
+    --background: rgba(0, 0, 0, 0.9);
+    // background: rgb(0,0,0,.5);
+    .action-sheet-group.sc-ion-action-sheet-md:first-child, .action-sheet-group.sc-ion-action-sheet-ios:first-child{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .action-sheet-button.sc-ion-action-sheet-md,.action-sheet-button.sc-ion-action-sheet-ios{
+        color: #fff;
+        font-family: 'roboto-regular';
+        font-size: 14px;
+    }
+    .action-sheet-icon.sc-ion-action-sheet-md,.action-sheet-icon.sc-ion-action-sheet-ios{
+        color: #ddd;
+        font-size: 21px;
+    }
+    .action-sheet-title.sc-ion-action-sheet-md, .action-sheet-title.sc-ion-action-sheet-ios{
+        color: #fff;
+        font-size: 15px;
+        font-family: 'roboto-regular';
+    }
+}
+.update-user-info-alert{
+  .alert-wrapper{
+      border-radius: 10px;
+  }
+  .alert-title.sc-ion-alert-md, .alert-title.sc-ion-alert-ios {
+      color: var(--ion-angular-select-bar-text-color);
+      font-size: 15px;
+      font-family: 'roboto-medium';
+      text-align: center;
+  }
+  .alert-input.sc-ion-alert-md, .alert-input.sc-ion-alert-ios{
+      border-bottom: 1px solid var(--ion-angular-select-bar-text-color);
+      color: var(--ion-angular-select-bar-text-color);
+      font-family: 'roboto-regular';
+      font-size: 15px;
+  }
+  .alert-button-group{
+      .alert-button:first-child{
+          font-size: 14px;
+          font-family: 'roboto-regular';
+          color: var(--ion-angular-select-bar-text-color);
+          text-transform: capitalize;
+      }
+      .alert-button:last-child{
+          font-size: 13px;
+          font-family: 'roboto-regular';
+          color: var(--ion-angular-select-bar-text-color);
+      }
+  }
+}
+.date-popover::part(content){
+  left: calc(13px + var(--offset-x, 0px));
+  width: 93%;
+}

@@ -1,0 +1,85 @@
+ion-content {
+  // overwrite inline styles
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+ion-content{
+  --background: var(--ion-color-background);
+}
+.calls-wapper-div{
+  margin-top: 10px;
+}
+.calls-wrap-min-div{
+  border-bottom: 1px solid var(--ion-color-item-border-bottom);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.calls-profile-img{
+  border-radius: 50%;
+  border: 1px solid #9391a5;
+  max-width: 40px;
+  object-fit: cover;
+  padding: 2px;
+  height: 55px;
+  min-width: 55px;
+}
+.calls-prfile-details-div{
+  margin-left: 10px;
+}
+.calls-name{
+  margin: 0;
+  font-size: 15px;
+  font-family: "roboto-medium" !important;
+  color: var(--background-top-header-text);
+  margin-bottom: 4px;
+}
+.calls-status-div{
+  img{
+    // border-radius: 50%;
+    // border: 1px solid #9391a5;
+    // max-width: 40px;
+    // object-fit: cover;
+    // padding: 2px;
+    // height: 55px;
+    // min-width: 55px;
+    width: 16px;
+    height: 16px;
+  }
+  h4{
+    color: #888db2;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0px 10px;
+  }
+
+}
+.calls-status-count-div{
+  background: #fe676c;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: relative;
+  h5{
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    margin: 0;
+    font-size: 9px;
+  }
+}
+.calls-time{
+  margin: 0;
+  color: #8388ad;
+  font-size: 12px;
+  font-family: "roboto-medium" !important;
+  margin-left: 10px;
+}
+.calls-wrap-min-div:hover{
+  background: var(--ion-home-unread-message-div);
+}

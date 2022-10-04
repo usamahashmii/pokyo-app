@@ -1,0 +1,32 @@
+ion-content {
+  // overwrite inline styles
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+ion-content{
+    --background: var(--ion-color-background);
+  }
+.chat-row{
+  padding: 4px 10px !important; 
+  cursor: pointer;
+}
+.group-profile-picture{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  right: -2px;
+  top: 0px;
+  border: 1px solid #969696;
+  border-radius: 50%;
+}
+.usr-profile-picture{
+  border: none;
+}
+.chat-row:hover{
+  background: var(--ion-home-unread-message-div);
+}

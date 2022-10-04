@@ -1,0 +1,64 @@
+
+<header id="header" class="nav-down header">
+  <!--Search Bar-->
+  <div class="search-bar-div-hide" id="searchInput">
+    <ion-input #inputMessage (ionChange)="searchItem($event)" class="search-input" placeholder="search" [(ngModel)]="searchValue"></ion-input>
+      <img (click)="showCloseSearch('close')" class="back-search-input-img" src="assets/imgs/chat-img/back.png">
+  </div>
+  
+  <div style="padding: 5px 12px;width: 100%;" class="header-div">
+    <div class="ion-display-flex ion-align-items-center profile-info-wrap-div ">
+      <div class="app-logo-div">
+        <img [src]="applogo">
+        <h3>Pokyo</h3>
+      </div>
+      <div class="ion-display-flex ion-align-items-center wallet-value-more-div" id="wallet-value-more-div">
+        <ion-button class="more-options-search-btn">
+          <img (click)="showCloseSearch('show')" class="more-options-search-img" src="assets/imgs/home-page-imgs/search.png">
+        </ion-button>
+        <ion-item style="--ripple-color: transparent;" class="more-options-drop-down" lines="none">
+          <ion-label><img class="more-options-menu-img" src="assets/imgs/home-page-imgs/menu.png"></ion-label>
+          <ion-select #sectionSelect interface="popover" mode="ios" (ionChange)="pickMoreOption($event)" >
+            <ion-select-option value="profile">View Profile</ion-select-option>
+            <ion-select-option value="settings">Settings</ion-select-option>
+            <ion-select-option value="stickers">Stickers</ion-select-option>
+            <ion-select-option value="go-premium">Go Premium</ion-select-option>
+          </ion-select>
+        </ion-item>            
+      </div>
+    </div>
+  </div>
+</header>
+<super-tabs class="super-tab" activeTabIndex="1" ><!--[config]="{ debug: true, sideMenu: 'left', allowElementScroll: true, nativeSmoothScroll: true }"-->
+  <!--Swipable Tabs-->
+  <super-tabs-toolbar slot="top">
+    <super-tab-button>
+      <img src="assets/imgs/home-page-imgs/home.png">
+    </super-tab-button>
+    <super-tab-button>
+      <img src="assets/imgs/home-page-imgs/phone-call.png">
+    </super-tab-button>
+    <super-tab-button>
+      <img src="assets/imgs/home-page-imgs/add-user.png">
+    </super-tab-button>
+    <super-tab-button>
+      <img src="assets/imgs/home-page-imgs/marital-status.png">
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+  <super-tabs-container autoScrollTop  id="toggleMain">
+    <super-tab class="ion-padding">
+      <ion-nav [root]="chatsPage"></ion-nav>
+    </super-tab>
+    <super-tab>
+      <ion-nav [root]="callsPage"></ion-nav>
+    </super-tab>
+    <super-tab>
+      <ion-nav [root]="groupsPage"></ion-nav>
+    </super-tab>
+    <super-tab>
+      <ion-nav [root]="statusPage"></ion-nav>
+    </super-tab>
+  </super-tabs-container>
+</super-tabs>
+<!-- </ion-content> -->

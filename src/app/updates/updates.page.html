@@ -1,0 +1,37 @@
+<ion-content (ionScroll)="logScrolling($event)" #content id="ion-content" scrollEvents="true">
+    <!--Statuses-->
+    <div class="status-wrap-div">
+      <h3 class="status-text">Status</h3>
+      <div class="status-wrapper-div ion-display-flex ion-align-items-center ion-justify-content-between">
+        <div class="add-status-div ion-display-flex ion-align-items-center">
+          <img class="status-profile-picture" src="assets/imgs/profession2/user4.jpg">
+          <div>
+            <h3 class="my-status-txt">My Status</h3>
+            <h4 class="add-my-status-txt">Add to my status</h4>
+          </div>
+        </div>
+        <div class="ion-display-flex camera-edit-icon-div">
+          <ul class="camera-edit-icon-ul">
+            <li><img class="camera-icon" src="assets/imgs/home-page-imgs/photo-camera.png"></li>
+            <li><img class="edit-icon" src="assets/imgs/home-page-imgs/edit.png"></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-status-separator">
+      <div>
+        <h3 class="view-updates">View Updates</h3>
+        <div class="statuses-wrapper-div">
+          <div (click)="openStatus(status)" class="statuses-child-div ion-display-flex ion-align-items-center " *ngFor="let status of searchValue != '' ? chatArrayFiltered : chatArray.chats">
+            <ng-container *ngIf="status.statusImage">
+              <img class="status-profile-img" [lazyLoad]="status.profilePicture">
+              <div>
+                <h4 class="status-profile-name">{{ status.name }}</h4>
+                <h4 class="status-upload-time">{{ status.statusImage.time }}</h4>
+              </div>
+              <!-- <ion-ripple-effect></ion-ripple-effect> -->
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+</ion-content>

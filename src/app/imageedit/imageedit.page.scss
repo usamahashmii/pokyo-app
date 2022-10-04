@@ -1,0 +1,95 @@
+ion-content {
+    // overwrite inline styles
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+//Content
+ion-content{
+    --background: var(--ion-color-background);
+  }
+.img-selected{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    // width: 100%;
+}
+//Footer
+.images-slides{
+    overflow: scroll;
+    flex-wrap: nowrap;
+    img{
+        min-width: 55px;
+        height: 55px;
+        object-fit: cover;
+    }
+}
+.highlight-img{
+    border: 1px solid red;
+}
+
+ion-footer{
+    background: var(--ion-color-background);
+    ion-toolbar{
+        --background: var(--ion-color-background);  
+    }
+}
+.footer-md::before,.footer-ios::before{
+    background-image: none;
+}
+.message-box-wrapper-div{
+    display: flex;
+    margin: 7px 6px 5px 6px;
+    align-items: center;
+}
+.pick-img-btn{
+    --background: var(--ion-background-color-message-input);
+    --box-shadow: none;
+    --ripple-color: #000000;
+    border-radius: 50%;
+    --border-radius: 50%;
+    height: 41px;
+    min-width: 38px;
+    margin: 0;
+    position: relative;
+    img{
+        min-width: 30px;
+        height: 21px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+.message-box-div{
+    background: var(--ion-background-color-message-input);
+    border: 1px solid var(--ion-background-color-message-input-border);
+    width: 100%;
+    // margin: 0px 10px 5px 10px;
+    padding: 5px;
+    border-radius: 25px;
+    align-items: center;
+    ion-input{
+        color: var(--ion-text-color);
+    }
+}
+.send-message-btn{
+    --background: var(--ion-background-color-message-input);
+    border: 1px solid var(--ion-background-color-message-input-border);
+    --box-shadow: none;
+    --ripple-color: #000000;
+    border-radius: 50%;
+    --border-radius: 50%;
+    height: 48px;
+    margin: 0;
+    max-width: 48px;
+    margin-left: 3px;
+    img{
+        min-width: 19px;
+        height: 19px;
+    }
+}

@@ -1,0 +1,95 @@
+
+ion-header{
+    box-shadow: none !important;
+    ion-toolbar{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+.images-txt{
+    font-size: 17px;
+    font-family: 'roboto-medium';
+    color: #fe6d72;
+    margin: 0px 20px;
+}
+.image-content-background{
+    --background: var(--ion-color-background);
+}
+.back-btn-effect{
+    --background: none;
+    --box-shadow: none;
+    --ripple-color: #000000;
+    border-radius: 50% !important;
+    --border-radius: 50% !important;
+    height: 40px;
+    max-width: 40px;
+    svg{
+        width: 20px;
+        height: 20px;
+        min-width: 25px;
+        fill: #e4666d;
+    }
+}
+.back-btn-effect:hover{
+    background: var(--ion-home-unread-message-div);
+}
+.back-btn{
+    min-width: 17px;
+    height: 17px;
+    width: 17px;
+}
+ion-slides{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+.highlight-border{
+    border: 1px solid red;
+}
+ion-footer{
+    ion-toolbar{
+        div{
+            display: flex;
+            overflow: scroll;
+            flex-wrap: nowrap;
+            img{
+                min-width: 55px;
+                height: 55px;
+                object-fit: cover;
+                margin: 0px 2px;
+            }
+        }
+    }
+}
+.left-right-btn-div{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    justify-content: space-between;
+    width: 100%;
+    ion-button{
+        --background: rgba(255,255,255,0.4);
+        height: 140px;
+        --box-shadow: none;
+        --border-radius: 0px 5px 5px 0px;
+        margin: 0;
+        svg{
+            width: 22px;
+            height: 22px;
+            fill: #d86169;
+        }
+    }
+}
+.left-btn{
+    svg{
+        transform: rotate(90deg);
+    }
+}
+.right-btn{
+    svg{
+        transform: rotate(-90deg);
+    }
+}

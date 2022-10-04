@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" class="back-btn-effect" slot="start">
+      <img class="back-btn" src="assets/imgs/chat-img/back.png">
+    </ion-button>
+    <ion-title class="profile-txt">
+      Notification Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group value="all">
+      <ion-list-header>
+        <ion-label>Select push and email notifications you'd like to receive.</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <h5>Send Me emails about my activity except emails i have unsubscribe from</h5>
+        <ion-radio slot="start" value="all"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <h5>Only send me required services announcements.</h5>
+        <ion-radio slot="start" value="required"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-list style="margin: 10px 12px;">
+    <ion-label>i'd like to receive emails and updates from MLZ about</ion-label>
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Always General announcement, updates, posts, and videos.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Personalise tips for my page.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Announcements and recommendations.</h5>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list style="margin: 10px 12px;">
+    <ion-label>Other Notifications</ion-label>
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Recommended videos.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>activity on my page or channel.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Activity on my comments.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Reply to comments.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Mentions.</h5>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

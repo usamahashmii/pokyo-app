@@ -1,0 +1,7 @@
+{
+  "name": "MLZ6",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

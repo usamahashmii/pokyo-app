@@ -1,0 +1,131 @@
+ion-content {
+  // overwrite inline styles
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+ion-content{
+    --background: var(--ion-color-background);
+  }
+//Statuses
+.status-wrap-div{
+  margin-top: 20px;
+}
+.status-text{
+  font-size: 16px;
+  font-family: 'roboto-medium' !important;
+  margin-left: 15px;
+}
+.view-updates{
+  font-size: 14px;
+  font-family: 'roboto-medium' !important;
+  margin: 0px 0px 18px 15px;
+}
+.status-wrapper-div{
+  margin: 0px 15px;
+}
+.add-status-div{
+
+}
+.status-profile-picture{
+  border-radius: 50%;
+  width: 55px !important;
+  min-width: 55px;
+  height: 55px !important;
+  margin-right: 6px;
+  border: 1px solid #ccc;
+  padding: 2px;
+}
+.my-status-txt{
+  margin: 0;
+  font-size: 15px;
+  font-family: 'roboto-medium' !important;
+  letter-spacing: 0.1px;
+  color: var(--background-top-header-text);
+}
+.add-my-status-txt{
+  font-size: 13px;
+  font-family: 'roboto-regular' !important;
+  color: #7d7e9e;
+  margin: 0;
+  margin-top: 3px;
+}
+.camera-icon{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.edit-icon{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.camera-edit-icon-div{
+
+}
+.camera-edit-icon-ul{
+  float: right;
+  list-style: outside none none;
+  margin: 0;
+  padding-left: 0;
+  li{
+    background: var(--ion-chat-box-phone-video-background) none repeat scroll 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 0 0 13px rgb(254 103 108 / 60%);
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    height: 40px;
+    width: 40px;
+    max-width: 50px;
+    position: relative;
+  }
+}
+.my-status-separator{
+  border-bottom: 1px solid rgb(149 149 149 / 20%);
+  margin: 10px 0px;
+}
+.statuses-wrapper-div{
+
+}
+.statuses-child-div{
+  cursor: pointer;
+  padding: 4px 10px !important;
+}
+.status-profile-img{
+  border-radius: 50%;
+  width: 55px !important;
+  height: 55px !important;
+  min-width: 55px;
+  margin-right: 9px;
+  border: 1px solid #ccc;
+  padding: 2px;
+  object-fit: cover;
+}
+.status-profile-name{
+  margin: 0;
+  font-size: 15px;
+  font-family: 'roboto-medium' !important;
+  letter-spacing: 0.1px;
+  color: var(--background-top-header-text);
+}
+.status-upload-time{
+  font-size: 13px;
+  font-family: 'roboto-regular' !important;
+  color: #7d7e9e;
+  margin: 0;
+  margin-top: 3px;
+}
+.statuses-child-div:hover{
+  background: var(--ion-home-unread-message-div);
+}

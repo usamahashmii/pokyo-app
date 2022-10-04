@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" class="back-btn-effect" slot="start">
+      <img class="back-btn" src="assets/imgs/chat-img/back.png">
+    </ion-button>
+    <ion-title class="profile-txt">
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content (ionScroll)="logScrolling($event)" #content id="ion-content" scrollEvents="true" >
+
+  <div class="profile-data-wrap-div">
+    <div class="profile-data-wrap-min-div">
+      <div class="ion-position-relative" style="height: 78px;" (click)="changeProfilePic()">
+        <img class="profile-picture" [lazyLoad]="profileImage">
+        <div class="profile-picture-edit-div">
+          <img class="profile-picture-edit" src="assets/imgs/chat-img/camera.svg">  
+        </div>
+      </div>
+      <div class="ion-display-flex ion-align-items-center name-edit-div" (click)="updateField('name', profileInfo.name)">
+        <h3>{{ profileInfo.name }}</h3>
+        <div class="name-edit-img">
+          <img src="assets/imgs/chat-img/pencil-red.svg">
+        </div>        
+      </div>
+    </div>
+  </div>
+
+  
+  <ion-row>
+    <ion-col size="12">
+      <ion-item button (click)="updateField('Nickname', profileInfo.nickName)" lines="none">      
+        <ion-label>Nick Name <h3>{{ profileInfo.nickName }}</h3></ion-label>
+        <ion-thumbnail slot="end">
+          <div class="name-edit-img">
+            <img src="assets/imgs/chat-img/pencil-red.svg">
+          </div>        
+        </ion-thumbnail>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-item button (click)="updateField('Username', profileInfo.userName)" lines="none">      
+        <ion-label>User Name <h3>{{ profileInfo.userName }}</h3></ion-label>
+        <ion-thumbnail slot="end">
+          <div class="name-edit-img">
+            <img src="assets/imgs/chat-img/pencil-red.svg">
+          </div>        
+        </ion-thumbnail>
+      </ion-item>
+    </ion-col>
+
+    <ion-col size="12">
+      <ion-item button (click)="updateField('Email', profileInfo.email)" lines="none">      
+        <ion-label>
+          Email <h3>{{ profileInfo.email }}</h3>
+        </ion-label>
+        <ion-thumbnail slot="end">
+          <div class="name-edit-img">
+            <img src="assets/imgs/chat-img/pencil-red.svg">
+          </div>        
+        </ion-thumbnail>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-item button (click)="updateField('Location', profileInfo.location)" lines="none">      
+        <ion-label>
+          Location  <h3>{{ profileInfo.location }}</h3>
+        </ion-label>
+        <ion-thumbnail slot="end">
+          <div class="name-edit-img">
+            <img src="assets/imgs/chat-img/pencil-red.svg">
+          </div>        
+        </ion-thumbnail>
+      </ion-item>
+    </ion-col>
+
+    <ion-col>
+      <ion-item button lines="none" (click)="pickDate()">
+        <ion-label>
+          Birthday   
+          <h3>{{ dob }}</h3>
+        </ion-label>
+        <ion-thumbnail slot="end">
+          <div class="name-edit-img">
+            <img src="assets/imgs/chat-img/pencil-red.svg">
+          </div>        
+        </ion-thumbnail>
+      </ion-item>
+    </ion-col>
+
+  </ion-row>
+    
+  <ion-button class="update-btn">Logout</ion-button>  
+</ion-content>

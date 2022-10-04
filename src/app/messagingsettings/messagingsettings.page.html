@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" class="back-btn-effect" slot="start">
+      <img class="back-btn" src="assets/imgs/chat-img/back.png">
+    </ion-button>
+    <ion-title class="profile-txt">
+      Messagning Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+      <ion-list-header>
+        <ion-label>Select push and email notifications you'd like to receive.</ion-label>
+      </ion-list-header>
+  </ion-list>
+
+  <ion-list style="margin: 10px 12px;">
+    <!-- <ion-label>i'd like to receive emails and updates from MLZ about</ion-label> -->
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Always General announcement, updates, posts, and videos.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Personalise tips for my page.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Announcements and recommendations.</h5>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list style="margin: 10px 12px;">
+    <ion-label>Other Messages</ion-label>
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>From Recommended videos.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Messages from activity on my page or channel.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Message me the replyer Activity on my comments.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Reply to comments.</h5>
+    </ion-item>
+
+    <ion-item>
+      <ion-checkbox></ion-checkbox>
+      <h5>Mentions.</h5>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-content (ionScroll)="logScrolling($event)" #content id="ion-content" scrollEvents="true">
+
+    <div style="margin-top: 20px;">
+      <!-- <h3 class="message-txt">Messages</h3> -->
+      <!--Chats-->
+      <div (click)="visitChatBox(chatObj)" *ngFor="let chatObj of searchValue != '' ? chatArrayFiltered : chatArray.chats; let i = index" class="chat-row ion-display-flex ion-align-items-center" [class.highlight-unread-div]="chatObj.readStatus == 'unread'">
+        <div>
+          <div class="online-status-div" [class.active-status]="chatObj.onlineStatus == 'online'" [class.offline-status]="chatObj.onlineStatus == 'offline'">
+            
+          </div>
+          <div class="ion-position-relative ion-display-flex">
+            <img class="usr-profile-picture" [lazyLoad]="chatObj.profilePicture">
+            <img class="group-profile-picture" [lazyLoad]="chatObj.groupImage">
+          </div>
+          
+        </div>
+        <div class="usr-name-msg">
+          <h3 class="usr-name">{{ chatObj.groupName }}</h3>
+          <ng-container *ngFor="let singleChat of chatObj.chatting; let j = index">
+            <h4 *ngIf="chatObj.chatting?.length - 1 == j" class="usr-last-msg">{{ singleChat.msg }}</h4>
+          </ng-container>
+        </div>
+        <div class="ion-display-flex ion-align-items-center chat-count-time-div">
+          <!--Chat Unread Count-->
+          <ng-container *ngFor="let singleChat of chatObj.chatting; let j = index">
+            <div *ngIf="chatObj.chatting?.length - 1 == j && singleChat.readStaus == 'unread'" class="chat-unread-count-div">
+              <h3>{{ singleChat.readStausCount }}</h3>
+            </div>
+            <h4  *ngIf="chatObj.chatting?.length - 1 == j" class="last-msg-time">{{ singleChat.time }}</h4>
+          </ng-container>
+        </div>
+      </div>
+    </div> 
+  </ion-content>
+  

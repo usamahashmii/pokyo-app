@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" class="back-btn-effect" slot="start">
+      <img class="back-btn" src="assets/imgs/chat-img/back.png">
+    </ion-button>
+    <ion-title class="sticker-txt">
+      Stickers
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment mode="ios" value="new" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="new">
+      <ion-label>New</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="trend">
+      <ion-label>Trend</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="hot">
+      <ion-label>Hot</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="stickersCat == 'new'">
+    <div class="ion-display-flex ion-justify-content-between stickers-div" *ngFor="let sticker of stickerArrayNew; let i = index">
+      <div>
+        <img src="assets/imgs/stickers/sticker{{ i+1 }}.gif">
+        <h3>{{ sticker.name }}</h3>
+      </div>
+      <ion-button>Download</ion-button>
+    </div>    
+  </div>
+
+  <div *ngIf="stickersCat == 'trend'">
+    <div class="ion-display-flex ion-justify-content-between stickers-div" *ngFor="let sticker of stickerArrayTrend; let i = index">
+      <div>
+        <img src="assets/imgs/stickers/sticker{{ i+16 }}.gif">
+        <h3>{{ sticker.name }}</h3>
+      </div>
+      <ion-button>Download</ion-button>
+    </div>    
+  </div>
+
+  <div *ngIf="stickersCat == 'hot'">
+    <div class="ion-display-flex ion-justify-content-between stickers-div" *ngFor="let sticker of stickerArrayHot; let i = index">
+      <div>
+        <img src="assets/imgs/stickers/sticker{{ i+31 }}.gif">
+        <h3>{{ sticker.name }}</h3>
+      </div>
+      <ion-button>Download</ion-button>
+    </div>    
+  </div>
+</ion-content>

@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pick Date</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-datetime (ionChange)="pickDate($event)" [showDefaultButtons]="true" cancelText="Cancel" doneText="Done" [(ngModel)]="dob" presentation="date" mode="ios" class="date-of-birth-box" displayFormat="YYYY/MM/DD" min="1970-12-01" max="2010-12-01" placeholder="Pick date of birth"></ion-datetime>
+</ion-content>
